@@ -84,6 +84,8 @@ file sorting.
 
 - **This tool moves files.** Always run with `--dry-run` first to confirm the
   results before committing, especially on a folder you care about.
+- **Only runs on Unix based systems.** This tool will not work in a Windows 
+  environment.
 - **Collisions are auto-renamed.** If a file with the same name already exists in
   the destination category folder, the incoming file is renamed (`report (1).pdf`)
   rather than overwriting. Note that `--dry-run` does not currently model
