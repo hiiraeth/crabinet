@@ -40,16 +40,19 @@ fn main() -> std::io::Result<()> {
 
     // start the clock after validation so we only time real work
     let time_elapsed = Instant::now();
-    println!("organizing files...");
 
     // skipped in dry-run so a preview never touches the disk
     if !dry_run {
+        println!("organizing files...");
         create_output_dirs(&output_dir).expect("failed to create directories");
     }
 
     organize_files(&input_dir, &output_dir, dry_run)?;
 
-    println!("finished organizing files in {:.2?}", time_elapsed.elapsed());
+    if !dry_run {
+        println!("finished organizing files in {:.2?}", time_elapsed.elapsed());
+    }
+    
     Ok(())
 }
 
